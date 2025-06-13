@@ -1,10 +1,19 @@
-﻿namespace Aprendizado.Domains
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Aprendizado.Domains
 {
+    //Ajustando para EntityFramework
+    [Table("Cantores")]
     public class Cantor
     {
+        [Key] [Required]
         public string Id { get; set; }
+        [Required(ErrorMessage = "Nome é necessário")]
         private string Nome { get; set; } = string.Empty; // este metodo ao final faz com que ele saia do construtor sem um valor nulo
+        [Column("Banda", TypeName ="varchar(255)")]
         private string Banda { get; set; } = string.Empty;
+        [MaxLength(100, ErrorMessage ="A música deve conter no máximo 100 caracteres")]
         private string Musica { get; set; } = string.Empty;
         public Cantor()
         {

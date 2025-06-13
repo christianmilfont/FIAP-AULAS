@@ -66,3 +66,16 @@ Na classe Exemplo, o uso do polimorfismo ocorre quando ao criarmos uma instância
 tipo “Animal”, podemos chamar o método “EmitirSom” da classe derivada 
 (“Cachorro”) através da referência da classe base (“Animal”). Isso é 
 polimorfismo de tempo de compilação.
+
+
+
+## Configurando o EntityFramework
+O Entity Framework é um framework ORM (Object-Relational Mapping) desenvolvido 
+pela Microsoft. Ele permite que os desenvolvedores interajam com bancos de dados relacionais 
+usando objetos e consultas em linguagens de programação, como C#
+
+Pacotes Necessários:
+- Microsoft.EntityFrameworkCore 
+- Microsoft.EntityFrameworkCore.Tools 
+- Microsoft.EntityFrameworkCore.Design 
+- Oracle.EntityFrameworkCore 
