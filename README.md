@@ -79,3 +79,40 @@ Pacotes Necessários:
 - Microsoft.EntityFrameworkCore.Tools 
 - Microsoft.EntityFrameworkCore.Design 
 - Oracle.EntityFrameworkCore 
+
+### Criando um DBContext 
+O DbContext é uma classe central no Entity Framework (EF) e Entity Framework Core 
+(EF Core), atuando como um canal entre o código C# de sua aplicação e o banco de dados. É 
+parte do namespace Microsoft.EntityFrameworkCore e serve para configurar o modelo de 
+dados, realizar consultas, e salvar alterações no banco de dados. O DbContext encapsula uma 
+sessão com o banco de dados, oferecendo uma API simplificada para executar operações CRUD 
+(Criar, Ler, Atualizar, Deletar) nas entidades mapeadas.
+
+- Consulta de Dados: O DbSet<T> oferece suporte a operações de consulta LINQ. 
+Permitindo que desenvolvedores escrevam consultas de forma expressiva e em alto nível, que são traduzidas pelo EF Core para SQL.
+- Rastreamento de Entidades: Quando uma entidade é obtida através de um DbSet, o EF Core por padrão rastreia suas alterações.
+- Operações CRUD: Além das consultas, o DbSet<T> facilita a criação, atualização e exclusão de entidades.
+- Carregamento de Relacionamentos: O DbSet<T> suporta operações para carregar explicitamente relacionamentos entre entidades.
+
+### Configurações para conectar ao banco Oracle:
+No desenvolvimento de aplicações .NET e .NET Core, o gerenciamento de configurações é um aspecto crucial que permite definir e acessar variáveis de configuração de maneira flexível e segura.
+
+#### appsettings.json :
+- Este arquivo é utilizado para definir configurações que são comuns a todos os ambientes de execução da aplicação
+- Porém, para não expor conteudos sensiveis, uitlizamos o appsettings.development.json, que subscreve o arquivo appsettings.json mas não altera o codigo.
+```
+"ConnectionStrings": { 
+"OracleConnection": "Data 
+Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=<HOST>)(P
+ ORT=<PORT>)))(CONNECT_DATA=(SERVICE_NAME=< SERVICE_NAME >)));User 
+ID=<USERID>;Password=<PASSWORD>;" 
+}
+```
+### Mapeando o DbContext:
+- Antes do var app adicionamos em Program.cs nossa mapagem para nossa string de conexão:
+```
+builder.Services.AddDbContext<OracleDbContext>(options =>
+{
+    options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection"));
+});
+```
