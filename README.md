@@ -1,4 +1,33 @@
 # Disciplina Java: API's Rest, boas práticas e segurança.
+## Dicas e Referências para Implementações em Java:
+### Livro: Design Patterns com Java - Casa do Codigo (Eduardo Guerra), Projeto orientado a objetos guiado por padrões
+- Este livro afirma que muitas vezes, apenas por seguir as regras de uma determinada API, sem saber você já utilizando um determinado padrão. A flexibilidade que aquele framework consegue para ser instanciado na sua aplicação, muitas vezes é conseguido justamente pelo uso do padrão.
+- Esse livro também cita diversas classes de APIs padrão da linguagem Java e de frameworks amplamente utilizados pela comunidade de desenvolvimento. Isso vai permitir que o desenvolvedor possa compreender melhor aquela solução inteligente utilizada naquele contexto, e trazer a mesma ideia para questões do seu próprio código.
+
+### Entendendo padrões de projeto:
+- CONCEITOS DA ORIENTAÇÃO A OBJETOS: Visando o início da programação a qual não possuia nenhum padrão de organização  e separação dos elementos do codigo. Isso, tornava o codigo muito ilegivel e mal estruturado surgindo ate mesmo o termo *“código macarrônico”*.
+- Para isso, formou-se a Programação Estruturada, separando os elementos por métodos/funções (armazenando a lógica) permitindo sua modularização, comandos condicionais (if/else) e comandos interativos (while/for).
+- Conforme melhorias e necessidades, surgiu a Programação Orientada a Obejtos.
+### Classes e Objetos:
+- Na programação orientada a objetos são definidos novos tipos através da criação de classes, e esses tipos podem ser instanciados criando objetos. A ideia é que um objeto represente uma entidade concreta enquanto sua classe representa uma abstração dos seus conceitos.
+- A classe possui estado e comportamento, que são representados respectivamente pelos atributos e métodos definidos. Enquanto uma classe possui uma característica, um objeto possui um valor para aquela característica.
+- Projetar um sistema orientado a objetos consiste em definir suas classes e como elas colaboram para conseguir implementar os requisitos de uma aplicação.
+
+### Herança:
+- Se uma aplicação precisa de um conjunto de objetos, devem haver classes que abstraiam esses conceitos.
+- Esses  objetos podem precisar ser tratados em partes diferentes do software a partir de diferentes níveis de abstração.
+- A *herança* é uma característica do paradigma orientado a objetos que permite que abstrações possam ser definidas em diversos níveis.
+#### "Quando uma classe estende outra, ela não só herda a estrutura de dados e o comportamento da superclasse, mas também o contrato que ela mantém com os seus clientes."
+
+## INTERFACE OU CLASSE ABSTRATA?
+- Tanto as classes abstratas quanto as interfaces podem definir métodos abstratos que precisam ser implementados pelas classes que respectivamente a estende ou implementa.
+- Apenas as classes abstratas podem possuir métodos concretos e atributos.
+
+#### "Quando a abstração que precisar ser criada for um conceito, ou seja, algo que possa ser refinado e espacializado, deve-se utilizar uma classe abstrata. Quando a abstração é um comportamento, ou seja, algo que uma classe deve saber fazer, então a melhor solução é a criação de uma interface."
+- Para entender melhor:
+1. imaginando um jogo no qual existem naves que se movem.
+2. Se sua abstração representa uma nave, então você está representando um conceito e deve utilizar uma classe abstrata.
+3. Se sua abstração representa algo que se move, então o que está sendo abstraído é um comportamento e a melhor solução é usar uma interface.
 
 ### Ambiente e suas Tecnologias:
 - Java SDK 17
@@ -165,3 +194,6 @@ public UsuarioDTO buscarPorId(@PathVariable Long id) {
         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
 }
 ```
+
+
+- 
